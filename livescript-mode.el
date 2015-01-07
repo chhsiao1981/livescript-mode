@@ -468,9 +468,14 @@ Commands:
 
 \\{livescript-mode-map}"
   (livescript-mode-variables)
-  (setq indent-tabs-mode nil)
-  (setq tab-width 2)
-  (setq indent-line-function 'insert-tab))
+  (setq sws-tab-width 2)
+  (make-local-variable 'indent-line-function)
+  (setq indent-line-function 'sws-indent-line)
+  (make-local-variable 'indent-region-function)
+
+  (setq indent-region-function 'sws-indent-region)
+
+  (setq indent-tabs-mode nil))
 
 ;;
 ;; Customize variables
