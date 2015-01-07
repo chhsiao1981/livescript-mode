@@ -461,13 +461,16 @@ STATE is a return value of `syntax-ppss'."
        livescript-syntax-propertize-function))
 
 ;;;###autoload
-(define-derived-mode livescript-mode prog-mode "LiveScript"
+(define-derived-mode livescript-mode sws-mode "LiveScript"
   "Major mode for editing LiveScript code.
 
 Commands:
 
 \\{livescript-mode-map}"
-  (livescript-mode-variables))
+  (livescript-mode-variables)
+  (setq indent-tabs-mode nil)
+  (setq tab-width 2)
+  (setq indent-line-function 'insert-tab))
 
 ;;
 ;; Customize variables
